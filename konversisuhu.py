@@ -21,15 +21,15 @@ with right_column:
 ''')
 st.write("---")
 
-from streamlit_option_menu import option_menu
+tab = stx.tab_bar(data=[
+    stx.TabBarItemData (id="Celcius", description="", title="Celcius"),
+    stx.TabBarItemData (id="Farenheit", description="", title="Farenheit"),
+    stx.TabBarItemData (id="Reamur", description="", title="Reamur"),
+    stx.TabBarItemData (id="Kelvin", description="", title="Kelvin")
+])
 
-with st.sidebar:
-    selected = option_menu(
-        menu_title = "Main Menu",
-        options=['Celcius', 'Farenheit', 'Reamur', 'Kelvin'],
-    )
     
-if (selected == 'Celcius'):
+if tab=="Celcius":
     st.subheader('Konversi Suhu Dari Skala Celcius')
     Celcius = st.number_input('Masukkan nilai suhu dalam Celcius :')
     st.write(f'Suhu dalam skala Celcius adalah {Celcius}')
@@ -46,7 +46,7 @@ if (selected == 'Celcius'):
     else:
         st.write('Silahkan tekan tombol konversi!')
     
-if (selected == 'Farenheit'):
+elif tab=="Farenheit":
     st.subheader('Konversi Suhu Dari Skala Farenheit')
     Farenheit = st.number_input('Masukkan nilai suhu dalam Farenheit :')
     st.write(f'Suhu dalam skala Farenheit adalah {Farenheit}')
@@ -63,7 +63,7 @@ if (selected == 'Farenheit'):
     else:
         st.write('Silahkan tekan tombol konversi!')
     
-if (selected == 'Reamur'):
+elif tab=="Reamur":
     st.subheader('Konversi Suhu Dari Skala Reamur')
     Reamur = st.number_input('Masukkan nilai suhu dalam Reamur :')
     st.write(f'Suhu dalam skala Reamur adalah {Reamur}')
@@ -80,7 +80,7 @@ if (selected == 'Reamur'):
     else:
         st.write('Silahkan tekan tombol konversi!')
     
-if (selected == 'Kelvin'):
+elif tab=="Kelvin":
     st.subheader('Konversi Suhu Dari Skala Kelvin')
     Kelvin = st.number_input('Masukkan nilai suhu dalam Kelvin :')
     st.write(f'Suhu dalam skala Kelvin adalah {Kelvin}')
